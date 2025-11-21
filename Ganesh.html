@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ganeshsai — 3D Animated Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0b1020;--card:#0f1724;--accent:#b37bff;--muted:#98a0b3}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Poppins',system-ui,Segoe UI,Roboto,-apple-system,Arial;background:linear-gradient(180deg,#051025 0%,#071428 60%);color:#e6f0ff;min-height:100vh;overflow:auto}
+    #app{position:relative;min-height:100vh}
+    canvas{position:fixed;inset:0;z-index:0}
+    header{position:relative;z-index:2;padding:40px 6vw;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:60px;height:60px;border-radius:14px;background:linear-gradient(135deg,var(--accent),#6be6a8);display:flex;align-items:center;justify-content:center;color:#02111a;font-weight:700;font-size:18px}
+    h1{font-size:20px;margin:0}
+    nav a{color:var(--muted);margin-left:18px;text-decoration:none}
+    .main{display:flex;gap:40px;padding:6vh 6vw;position:relative;z-index:2}
+    .left{flex:0 0 520px;background:rgba(255,255,255,0.03);border-radius:16px;padding:28px;backdrop-filter:blur(6px);box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+    .avatar{width:120px;height:120px;border-radius:16px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    .meta{margin-left:18px}
+    .row{display:flex;align-items:center}
+    .name{font-size:24px;font-weight:700}
+    .muted{color:var(--muted);font-size:14px}
+    .about{margin-top:18px;color:#dfefff;line-height:1.45}
+    .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .chip{background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:999px;font-size:13px;color:#eaf7ff}
+    .right{flex:1;min-height:520px}
+    .card{background:rgba(255,255,255,0.03);padding:22px;border-radius:14px;margin-bottom:18px}
+    .section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+    .section-title h3{margin:0}
+    .project{margin-bottom:10px;padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.015),transparent)}
+    footer{position:relative;z-index:2;padding:24px 6vw;color:var(--muted)}
+    .download{display:inline-block;background:linear-gradient(90deg,var(--accent),#6be6a8);padding:10px 16px;border-radius:10px;color:#02111a;text-decoration:none;font-weight:600}
+    @media(max-width:980px){.main{flex-direction:column;padding:4vh 4vw}.left{width:100%}.right{width:100%}}
+  </style>
+</head>
+<body>
+  <div id="app">
+    <canvas id="bg"></canvas>
+
+    <header>
+      <div class="brand">
+        <div class="logo">GP</div>
+        <div>
+          <h1>Ganeshsai Parlapalli</h1>
+          <div class="muted">Python Full-Stack Developer • Bangalore, Karnataka</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <div class="main">
+      <aside class="left">
+        <div style="display:flex;align-items:center">
+          <div class="avatar">
+            <img src="Ganeshsai_Photo.jpg" alt="Ganeshsai Parlapalli">
+          </div>
+          <div class="meta">
+            <div class="name">Ganeshsai Parlapalli</div>
+            <div class="muted">Bangalore, Karnataka • +91 8501027056</div>
+            <div class="muted">Ganeshsaiparlapalli@gmail.com</div>
+          </div>
+        </div>
+
+        <div class="about" id="about">
+          <strong>Career Objective</strong>
+          <p>Aspiring Python Full Stack Developer with strong foundation in Python, OOPs, HTML, CSS, JavaScript, SQL, React.js and hands-on experience with Git/GitHub. Seeking an entry-level role to contribute to both frontend and backend development of responsive, user-friendly web applications while growing in a collaborative, learning-focused environment.</p>
+        </div>
+
+        <div style="margin-top:12px">
+          <div class="muted">Education</div>
+          <div style="font-weight:600">Audisankara Institute of Technology</div>
+          <div class="muted">Bachelor of Electronics & Communication — CGPA: 8.0 — Dec 2021 – Mar 2025</div>
+        </div>
+
+        <div style="margin-top:12px">
+          <div class="muted">Skills</div>
+          <div class="skills" id="skills">
+            <div class="chip">Python</div>
+            <div class="chip">HTML/CSS</div>
+            <div class="chip">JavaScript</div>
+            <div class="chip">React.js</div>
+            <div class="chip">SQL / MySQL</div>
+            <div class="chip">Git / GitHub</div>
+            <div class="chip">Embedded C</div>
+          </div>
+        </div>
+
+        <div style="margin-top:16px">
+          <a class="download" href="Ganeshsai_Developer_Resume.pdf" download>Download Resume (PDF)</a>
+        </div>
+      </aside>
+
+      <main class="right">
+        <div class="card">
+          <div class="section-title"><h3>Experience</h3><div class="muted">Aug 2024 – Feb 2025</div></div>
+          <div>
+            <strong>Robotics Trainee Intern — Effica Automation</strong>
+            <div class="muted">Coimbatore, Tamil Nadu</div>
+            <ul>
+              <li>Designed robotic automation systems using Embedded C, Arduino, and microcontroller programming.</li>
+              <li>Integrated sensors, actuators, and microcontrollers for real-time robotic task execution.</li>
+              <li>Programmed motion paths achieving 96% precision in repeated path validation tests.</li>
+              <li>Debugged logic errors and optimized hardware-software integration, improving robotic response time by 32%.</li>
+              <li>Documented workflows and SOPs for deployment, QA, and scalability.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card" id="projects">
+          <div class="section-title"><h3>Projects</h3></div>
+
+          <div class="project">
+            <strong>Smart Helmet using GPS and GSM | Python, Embedded C, OOPs</strong>
+            <div class="muted">Feb 2025 - Apr 2025</div>
+            <ul>
+              <li>Planned and designed an IoT Smart Helmet system to detect accidents and send GPS location via GSM.</li>
+              <li>Embedded C code for Arduino to collect data from accelerometer and GPS, triggering automated SMS alerts.</li>
+              <li>Python scripts for testing sensors, logging GPS, and simulating emergency scenarios.</li>
+              <li>Applied OOP principles: Encapsulation, Abstraction, Inheritance for sensor and hardware logic.</li>
+              <li>Full system integration with 95% accuracy in end-to-end testing.</li>
+              <li>Used GitHub for version control, issue tracking, and collaboration.</li>
+            </ul>
+          </div>
+
+          <div class="project">
+            <strong>Online Medical Ordering System | HTML5, CSS3, JavaScript, MySQL</strong>
+            <div class="muted">Feb 2025 - Apr 2025</div>
+            <ul>
+              <li>Designed responsive layout with HTML/CSS for user-friendly medicine browsing and ordering.</li>
+              <li>Client-side validation using JavaScript for dynamic cart and form management.</li>
+              <li>CRUD operations for products, users, and orders in MySQL database.</li>
+              <li>Custom UI interactions: real-time cart updates, error feedback, and order confirmation.</li>
+              <li>Tested 50+ transactions for smooth and error-free operations.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-title"><h3>Technical Skills & Tools</h3></div>
+          <div class="muted">Languages:</div>
+          <div style="margin-top:8px">Python, C, HTML/CSS, JavaScript, React.js, SQL/MySQL</div>
+          <div style="margin-top:12px" class="muted">Tools:</div>
+          <div style="margin-top:8px">VS Code, Microsoft 365 (Word, Excel, PowerPoint), Tosca Automation</div>
+          <div style="margin-top:12px" class="muted">Technologies/Frameworks:</div>
+          <div style="margin-top:8px">Git/GitHub, Pandas, Numpy</div>
+          <div style="margin-top:12px" class="muted">Soft Skills:</div>
+          <div style="margin-top:8px">Team Collaboration, Leadership, Adaptability, Communication, Problem-Solving, Debugging, Fast Learner</div>
+        </div>
+
+        <div class="card" id="contact">
+          <div class="section-title"><h3>Contact</h3><div class="muted">Let's connect</div></div>
+          <div class="muted">Email</div>
+          <div><a href="mailto:Ganeshsaiparlapalli@gmail.com" style="color:#e6f0ff;text-decoration:none;">Ganeshsaiparlapalli@gmail.com</a></div>
+          <div style="margin-top:8px" class="muted">Phone</div>
+          <div><a href="tel:+918501027056" style="color:#e6f0ff;text-decoration:none;">+91 8501027056</a></div>
+          <div style="margin-top:12px">
+            <a class="download" href="https://www.linkedin.com/in/parlapalli-ganeshsai-629a3631" target="_blank">LinkedIn</a>
+            <a class="download" href="https://github.com/Ganeshsai56" target="_blank" style="margin-left:10px;">GitHub</a>
+          </div>
+        </div>
+
+      </main>
+    </div>
+
+    <footer>
+      Designed by Ganeshsai 
+    </footer>
+  </div>
+
+  <!-- Three.js 3D animated background (particles orbiting center) -->
+  <script src="https://unpkg.com/three@0.154.0/build/three.min.js"></script>
+  <script>
+    const canvas = document.getElementById('bg');
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    const W = () => window.innerWidth;
+    const H = () => window.innerHeight;
+    renderer.setSize(W(), H());
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(50, W()/H(), 0.1, 1000);
+    camera.position.z = 45;
+
+    const particles = [];
+    const particleCount = 100;
+
+    for (let i = 0; i < particleCount; i++) {
+      const size = Math.random() * 0.35 + 0.05;
+      const geo = new THREE.SphereGeometry(size, 12, 12);
+      const mat = new THREE.MeshStandardMaterial({
+        emissive: 0xb37bff,
+        emissiveIntensity: 1.2,
+        color: 0x111111,
+        roughness: 0.25,
+        metalness: 0.8
+      });
+      const p = new THREE.Mesh(geo, mat);
+      p.userData = {
+        angle: Math.random() * Math.PI * 2,
+        radius: 8 + Math.random() * 20,
+        speed: 0.005 + Math.random() * 0.015,
+        heightOffset: (Math.random() - 0.5) * 6,
+        phase: Math.random() * Math.PI * 2
+      };
+      p.position.set(
+        Math.cos(p.userData.angle) * p.userData.radius,
+        p.userData.heightOffset,
+        Math.sin(p.userData.angle) * p.userData.radius - 5
+      );
+      particles.push(p);
+      scene.add(p);
+    }
+
+    const glowGeo = new THREE.SphereGeometry(1.8, 32, 32);
+    const glowMat = new THREE.MeshBasicMaterial({ color: 0xb37bff, transparent: true, opacity: 0.08 });
+    const glow = new THREE.Mesh(glowGeo, glowMat);
+    glow.position.set(0, 0, -5);
+    scene.add(glow);
+
+    const amb = new THREE.AmbientLight(0xb37bff, 0.45);
+    scene.add(amb);
+    const point = new THREE.PointLight(0xb37bff, 1.25, 300);
+    point.position.set(15, 20, 30);
+    scene.add(point);
+
+    let mx = 0, my = 0;
+    document.addEventListener('mousemove', e => {
+      mx = (e.clientX - W()/2) / W();
+      my = (e.clientY - H()/2) / H();
+    });
+
+    function animate() {
+      const t = Date.now() * 0.001;
+      particles.forEach(p => {
+        p.userData.angle += p.userData.speed;
+        p.position.x = Math.cos(p.userData.angle + p.userData.phase) * p.userData.radius;
+        p.position.z = Math.sin(p.userData.angle + p.userData.phase) * p.userData.radius - 5;
+        p.position.y = p.userData.heightOffset + Math.sin(t * 1.1 + p.userData.phase) * 0.6;
+        p.rotation.x += 0.002 + p.userData.speed * 0.3;
+        p.rotation.y += 0.003 + p.userData.speed * 0.3;
+        const pulse = 0.9 + Math.sin(t * 1.2 + p.userData.phase) * 0.15;
+        p.material.emissiveIntensity = pulse;
+      });
+      glow.material.opacity = 0.06 + Math.sin(t * 0.9) * 0.02;
+      camera.position.x += (mx * 12 - camera.position.x) * 0.06;
+      camera.position.y += (-my * 6 - camera.position.y) * 0.06;
+      camera.lookAt(0, 0, -5);
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      renderer.setSize(W(), H());
+      camera.aspect = W()/H();
+      camera.updateProjectionMatrix();
+    });
+  </script>
+</body>
+</html>
