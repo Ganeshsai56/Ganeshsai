@@ -19,23 +19,16 @@
     .main{display:flex;gap:40px;padding:6vh 6vw;position:relative;z-index:2}
     .left{flex:0 0 520px;background:rgba(255,255,255,0.03);border-radius:16px;padding:28px;backdrop-filter:blur(6px);box-shadow:0 8px 30px rgba(0,0,0,0.6)}
 
-    /* AVATAR CIRCLE + FIX FOR MOBILE */
+    /* PHOTO CIRCLE + NO SHRINK */
     .avatar{
-      flex:0 0 96px;
-      width:96px;
-      height:96px;
+      width:120px;
+      height:120px;
       border-radius:50%;
       overflow:hidden;
       display:flex;
       align-items:center;
       justify-content:center;
-    }
-    @media(min-width:980px){
-      .avatar{
-        flex:0 0 120px;
-        width:120px;
-        height:120px;
-      }
+      flex-shrink:0;
     }
     .avatar img{
       width:100%;
@@ -48,6 +41,13 @@
     .row{display:flex;align-items:center}
     .name{font-size:24px;font-weight:700}
     .muted{color:var(--muted);font-size:14px}
+
+    /* ONLY EMAIL LINE WRAPS */
+    .meta .muted:nth-child(3){
+      word-break:break-all;
+      overflow-wrap:break-word;
+    }
+
     .about{margin-top:18px;color:#dfefff;line-height:1.45}
     .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
     .chip{background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:999px;font-size:13px;color:#eaf7ff}
@@ -290,5 +290,6 @@
   </script>
 </body>
 </html>
+
 
 
