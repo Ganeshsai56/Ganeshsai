@@ -19,15 +19,23 @@
     .main{display:flex;gap:40px;padding:6vh 6vw;position:relative;z-index:2}
     .left{flex:0 0 520px;background:rgba(255,255,255,0.03);border-radius:16px;padding:28px;backdrop-filter:blur(6px);box-shadow:0 8px 30px rgba(0,0,0,0.6)}
 
-    /* PHOTO AS CIRCLE */
+    /* AVATAR CIRCLE + FIX FOR MOBILE */
     .avatar{
-      width:120px;
-      height:120px;
+      flex:0 0 96px;
+      width:96px;
+      height:96px;
       border-radius:50%;
       overflow:hidden;
       display:flex;
       align-items:center;
       justify-content:center;
+    }
+    @media(min-width:980px){
+      .avatar{
+        flex:0 0 120px;
+        width:120px;
+        height:120px;
+      }
     }
     .avatar img{
       width:100%;
