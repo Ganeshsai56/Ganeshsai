@@ -19,7 +19,7 @@
     .main{display:flex;gap:40px;padding:6vh 6vw;position:relative;z-index:2}
     .left{flex:0 0 520px;background:rgba(255,255,255,0.03);border-radius:16px;padding:28px;backdrop-filter:blur(6px);box-shadow:0 8px 30px rgba(0,0,0,0.6)}
 
-    /* PHOTO CIRCLE + NO SHRINK */
+    /* PHOTO: perfect circle, no shrink */
     .avatar{
       width:120px;
       height:120px;
@@ -37,12 +37,15 @@
       border-radius:50%;
     }
 
-    .meta{margin-left:18px}
+    .meta{
+      margin-left:18px;
+      min-width:0;           /* allow flex item to shrink so text can wrap */
+    }
     .row{display:flex;align-items:center}
     .name{font-size:24px;font-weight:700}
     .muted{color:var(--muted);font-size:14px}
 
-    /* ONLY EMAIL LINE WRAPS */
+    /* EMAIL LINE WRAP */
     .meta .muted:nth-child(3){
       word-break:break-all;
       overflow-wrap:break-word;
