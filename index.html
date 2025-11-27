@@ -82,20 +82,22 @@
       box-shadow:0 8px 30px rgba(0,0,0,0.6);
     }
 
-    /* bigger and clearer photo on mobile */
+    /* ✅ Clean circular avatar, face clearly visible */
     .avatar{
-      width:120px;
-      height:150px;
-      border-radius:16px;
+      width:90px;
+      height:90px;
+      border-radius:50%;
       overflow:hidden;
       display:flex;
       align-items:center;
       justify-content:center;
+      flex-shrink:0;
     }
     .avatar img{
       width:100%;
       height:100%;
       object-fit:cover;
+      display:block;
     }
 
     .meta{ margin-left:14px; }
@@ -199,8 +201,8 @@
       }
 
       .avatar{
-        width:130px;
-        height:170px;
+        width:110px;
+        height:110px;
       }
 
       .card{
