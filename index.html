@@ -8,111 +8,33 @@
   <style>
     :root{--bg:#0b1020;--card:#0f1724;--accent:#b37bff;--muted:#98a0b3}
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:'Poppins',system-ui,Segoe UI,Roboto,-apple-system,Arial;
-      background:linear-gradient(180deg,#051025 0%,#071428 60%);
-      color:#e6f0ff;
-      min-height:100vh;
-      overflow:auto
-    }
+    body{margin:0;font-family:'Poppins',system-ui,Segoe UI,Roboto,-apple-system,Arial;background:linear-gradient(180deg,#051025 0%,#071428 60%);color:#e6f0ff;min-height:100vh;overflow:auto}
     #app{position:relative;min-height:100vh}
     canvas{position:fixed;inset:0;z-index:0}
-
-    header{
-      position:relative;z-index:2;
-      padding:40px 6vw;
-      display:flex;align-items:center;justify-content:space-between
-    }
+    header{position:relative;z-index:2;padding:40px 6vw;display:flex;align-items:center;justify-content:space-between}
     .brand{display:flex;gap:14px;align-items:center}
-    .logo{
-      width:60px;height:60px;border-radius:14px;
-      background:linear-gradient(135deg,var(--accent),#6be6a8);
-      display:flex;align-items:center;justify-content:center;
-      color:#02111a;font-weight:700;font-size:18px
-    }
+    .logo{width:60px;height:60px;border-radius:14px;background:linear-gradient(135deg,var(--accent),#6be6a8);display:flex;align-items:center;justify-content:center;color:#02111a;font-weight:700;font-size:18px}
     h1{font-size:20px;margin:0}
     nav a{color:var(--muted);margin-left:18px;text-decoration:none}
-
-    .main{
-      display:flex;gap:40px;
-      padding:6vh 6vw;
-      position:relative;z-index:2
-    }
-    .left{
-      flex:0 0 520px;
-      background:rgba(255,255,255,0.03);
-      border-radius:16px;
-      padding:28px;
-      backdrop-filter:blur(6px);
-      box-shadow:0 8px 30px rgba(0,0,0,0.6)
-    }
-
-    /* avatar as circle */
-    .avatar{
-      width:120px;
-      height:120px;
-      border-radius:50%;
-      overflow:hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center
-    }
-    .avatar img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center;
-    }
-
+    .main{display:flex;gap:40px;padding:6vh 6vw;position:relative;z-index:2}
+    .left{flex:0 0 520px;background:rgba(255,255,255,0.03);border-radius:16px;padding:28px;backdrop-filter:blur(6px);box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+    .avatar{width:120px;height:120px;border-radius:16px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+    .avatar img{width:100%;height:100%;object-fit:cover}
     .meta{margin-left:18px}
     .row{display:flex;align-items:center}
     .name{font-size:24px;font-weight:700}
     .muted{color:var(--muted);font-size:14px}
-
-    /* email wrap fix */
-    .email{
-      word-break:break-all;
-      overflow-wrap:break-word;
-      display:block;
-    }
-
     .about{margin-top:18px;color:#dfefff;line-height:1.45}
     .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
-    .chip{
-      background:rgba(255,255,255,0.03);
-      padding:8px 12px;border-radius:999px;
-      font-size:13px;color:#eaf7ff
-    }
+    .chip{background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:999px;font-size:13px;color:#eaf7ff}
     .right{flex:1;min-height:520px}
-    .card{
-      background:rgba(255,255,255,0.03);
-      padding:22px;border-radius:14px;margin-bottom:18px
-    }
-    .section-title{
-      display:flex;justify-content:space-between;align-items:center;margin-bottom:10px
-    }
+    .card{background:rgba(255,255,255,0.03);padding:22px;border-radius:14px;margin-bottom:18px}
+    .section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
     .section-title h3{margin:0}
-    .project{
-      margin-bottom:10px;padding:12px;border-radius:10px;
-      background:linear-gradient(180deg,rgba(255,255,255,0.015),transparent)
-    }
-    footer{
-      position:relative;z-index:2;
-      padding:24px 6vw;color:var(--muted)
-    }
-    .download{
-      display:inline-block;
-      background:linear-gradient(90deg,var(--accent),#6be6a8);
-      padding:10px 16px;border-radius:10px;
-      color:#02111a;text-decoration:none;font-weight:600
-    }
-
-    @media(max-width:980px){
-      .main{flex-direction:column;padding:4vh 4vw}
-      .left{width:100%}
-      .right{width:100%}
-    }
+    .project{margin-bottom:10px;padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.015),transparent)}
+    footer{position:relative;z-index:2;padding:24px 6vw;color:var(--muted)}
+    .download{display:inline-block;background:linear-gradient(90deg,var(--accent),#6be6a8);padding:10px 16px;border-radius:10px;color:#02111a;text-decoration:none;font-weight:600}
+    @media(max-width:980px){.main{flex-direction:column;padding:4vh 4vw}.left{width:100%}.right{width:100%}}
   </style>
 </head>
 <body>
@@ -143,7 +65,7 @@
           <div class="meta">
             <div class="name">Ganeshsai Parlapalli</div>
             <div class="muted">Bangalore, Karnataka • +91 8501027056</div>
-            <div class="muted email">Ganeshsaiparlapalli@gmail.com</div>
+            <div class="muted">Ganeshsaiparlapalli@gmail.com</div>
           </div>
         </div>
 
@@ -178,10 +100,7 @@
 
       <main class="right">
         <div class="card">
-          <div class="section-title">
-            <h3>Experience</h3>
-            <div class="muted">Aug 2024 – Feb 2025</div>
-          </div>
+          <div class="section-title"><h3>Experience</h3><div class="muted">Aug 2024 – Feb 2025</div></div>
           <div>
             <strong>Robotics Trainee Intern — Effica Automation</strong>
             <div class="muted">Coimbatore, Tamil Nadu</div>
@@ -237,22 +156,11 @@
         </div>
 
         <div class="card" id="contact">
-          <div class="section-title">
-            <h3>Contact</h3>
-            <div class="muted">Let's connect</div>
-          </div>
+          <div class="section-title"><h3>Contact</h3><div class="muted">Let's connect</div></div>
           <div class="muted">Email</div>
-          <div>
-            <a href="mailto:Ganeshsaiparlapalli@gmail.com"
-               class="email"
-               style="color:#e6f0ff;text-decoration:none;">
-               Ganeshsaiparlapalli@gmail.com
-            </a>
-          </div>
+          <div><a href="mailto:Ganeshsaiparlapalli@gmail.com" style="color:#e6f0ff;text-decoration:none;">Ganeshsaiparlapalli@gmail.com</a></div>
           <div style="margin-top:8px" class="muted">Phone</div>
-          <div>
-            <a href="tel:+918501027056" style="color:#e6f0ff;text-decoration:none;">+91 8501027056</a>
-          </div>
+          <div><a href="tel:+918501027056" style="color:#e6f0ff;text-decoration:none;">+91 8501027056</a></div>
           <div style="margin-top:12px">
             <a class="download" href="https://www.linkedin.com/in/parlapalli-ganeshsai-629a3631" target="_blank">LinkedIn</a>
             <a class="download" href="https://github.com/Ganeshsai56" target="_blank" style="margin-left:10px;">GitHub</a>
@@ -331,23 +239,30 @@
 
     function animate() {
       const t = Date.now() * 0.001;
+
       particles.forEach(p => {
         p.userData.angle += p.userData.speed;
         p.position.x = Math.cos(p.userData.angle + p.userData.phase) * p.userData.radius;
         p.position.z = Math.sin(p.userData.angle + p.userData.phase) * p.userData.radius - 5;
         p.position.y = p.userData.heightOffset + Math.sin(t * 1.1 + p.userData.phase) * 0.6;
+
         p.rotation.x += 0.002 + p.userData.speed * 0.3;
         p.rotation.y += 0.003 + p.userData.speed * 0.3;
+
         const pulse = 0.9 + Math.sin(t * 1.2 + p.userData.phase) * 0.15;
         p.material.emissiveIntensity = pulse;
       });
+
       glow.material.opacity = 0.06 + Math.sin(t * 0.9) * 0.02;
+
       camera.position.x += (mx * 12 - camera.position.x) * 0.06;
       camera.position.y += (-my * 6 - camera.position.y) * 0.06;
       camera.lookAt(0, 0, -5);
+
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
     }
+
     animate();
 
     window.addEventListener('resize', () => {
