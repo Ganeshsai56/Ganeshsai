@@ -18,8 +18,24 @@
     nav a{color:var(--muted);margin-left:18px;text-decoration:none}
     .main{display:flex;gap:40px;padding:6vh 6vw;position:relative;z-index:2}
     .left{flex:0 0 520px;background:rgba(255,255,255,0.03);border-radius:16px;padding:28px;backdrop-filter:blur(6px);box-shadow:0 8px 30px rgba(0,0,0,0.6)}
-    .avatar{width:120px;height:120px;border-radius:16px;overflow:hidden;display:flex;align-items:center;justify-content:center}
-    .avatar img{width:100%;height:100%;object-fit:cover}
+
+    /* avatar now circle */
+    .avatar{
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:50%;
+    }
+
     .meta{margin-left:18px}
     .row{display:flex;align-items:center}
     .name{font-size:24px;font-weight:700}
@@ -239,30 +255,23 @@
 
     function animate() {
       const t = Date.now() * 0.001;
-
       particles.forEach(p => {
         p.userData.angle += p.userData.speed;
         p.position.x = Math.cos(p.userData.angle + p.userData.phase) * p.userData.radius;
         p.position.z = Math.sin(p.userData.angle + p.userData.phase) * p.userData.radius - 5;
         p.position.y = p.userData.heightOffset + Math.sin(t * 1.1 + p.userData.phase) * 0.6;
-
         p.rotation.x += 0.002 + p.userData.speed * 0.3;
         p.rotation.y += 0.003 + p.userData.speed * 0.3;
-
         const pulse = 0.9 + Math.sin(t * 1.2 + p.userData.phase) * 0.15;
         p.material.emissiveIntensity = pulse;
       });
-
       glow.material.opacity = 0.06 + Math.sin(t * 0.9) * 0.02;
-
       camera.position.x += (mx * 12 - camera.position.x) * 0.06;
       camera.position.y += (-my * 6 - camera.position.y) * 0.06;
       camera.lookAt(0, 0, -5);
-
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
     }
-
     animate();
 
     window.addEventListener('resize', () => {
